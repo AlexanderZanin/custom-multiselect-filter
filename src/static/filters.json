@@ -1,0 +1,549 @@
+{
+  "DS_SourceName": {
+    "type": "single",
+    "name": "Source",
+    "labelKey": "label",
+    "options": [
+      {
+        "count": 1143304,
+        "value": "<NAME_NOT_PROVIDED>",
+        "label": "<NAME NOT PROVIDED>"
+      },
+      {
+        "count": 21946,
+        "value": "EX 90 GB 09.01.18  v3",
+        "label": "EX 90 GB 09.01.18  V3"
+      },
+      {
+        "count": 74,
+        "value": "TheCase 2 18.01.18",
+        "label": "THECASE 2 18.01.18"
+      },
+      {
+        "count": 73,
+        "value": "Junger & Co all",
+        "label": "JUNGER & CO ALL"
+      },
+      {
+        "count": 34,
+        "value": "Junger 21.01.18",
+        "label": "JUNGER 21.01.18"
+      },
+      {
+        "count": 21,
+        "value": "180109 petrch v3",
+        "label": "180109 PETRCH V3"
+      },
+      {
+        "count": 21,
+        "value": "180109 petrch v4",
+        "label": "180109 PETRCH V4"
+      },
+      {
+        "count": 10,
+        "value": "FF-EXCHANGE",
+        "label": "FF-EXCHANGE"
+      },
+      {
+        "count": 9,
+        "value": "EX90GB 06.01.18",
+        "label": "EX90GB 06.01.18"
+      },
+      {
+        "count": 3,
+        "value": "Junger & CO",
+        "label": "JUNGER & CO"
+      }
+    ],
+    "selected": []
+  },
+  "DS_Department": {
+    "type": "single",
+    "name": "Department",
+    "labelKey": "label",
+    "options": [
+      {
+        "count": 1143304,
+        "value": "<ORGANIZATION_NOT_PROVIDED>",
+        "label": "<ORGANIZATION NOT PROVIDED>"
+      },
+      {
+        "count": 21946,
+        "value": "Junge",
+        "label": "JUNGE"
+      },
+      {
+        "count": 76,
+        "value": "<DEPARTMENT_NOT_PROVIDED2>",
+        "label": "<DEPARTMENT NOT PROVIDED2>"
+      },
+      {
+        "count": 74,
+        "value": "Forensic",
+        "label": "FORENSIC"
+      },
+      {
+        "count": 34,
+        "value": " HR",
+        "label": " HR"
+      },
+      {
+        "count": 21,
+        "value": "fqwef",
+        "label": "FQWEF"
+      },
+      {
+        "count": 21,
+        "value": "qwfqwef",
+        "label": "QWFQWEF"
+      },
+      {
+        "count": 9,
+        "value": "EuropeanExperts",
+        "label": "EUROPEANEXPERTS"
+      }
+    ],
+    "selected": []
+  },
+  "DS_Status": {
+    "type": "single",
+    "name": "Status",
+    "labelKey": "label",
+    "options": [
+      {
+        "label": "Loading Filed",
+        "value": "INGEST_ERROR"
+      },
+      {
+        "label": "Scanned",
+        "value": "SCANNED"
+      },
+      {
+        "label": "Request Profiling",
+        "value": "REQUEST_PROFILING"
+      },
+      {
+        "label": "Profiling",
+        "value": "REQUEST_INGEST"
+      },
+      {
+        "label": "Profiling Failed",
+        "value": "ERROR"
+      },
+      {
+        "label": "Profiled",
+        "value": "FINISHED"
+      }
+    ],
+    "selected": []
+  },
+  "DS_PIIScore": {
+    "type": "single",
+    "name": "PII",
+    "options": [
+      "Identifiable",
+      "Inferable",
+      "None",
+      "Not set"
+    ],
+    "selected": []
+  },
+  "DS_SensetivityScore": {
+    "type": "single",
+    "name": "Sensitivity",
+    "options": [
+      "High",
+      "Normal",
+      "Low",
+      "None",
+      "Not Set"
+    ],
+    "selected": []
+  },
+  "DS_Criticality": {
+    "type": "single",
+    "name": "Personal",
+    "labelKey": "label",
+    "options": [
+      {
+        "label": "Sensitive Personal Data",
+        "value": "High"
+      },
+      {
+        "label": "Personal Data",
+        "value": "Normal"
+      },
+      {
+        "label": "No Personal Data",
+        "value": "Low"
+      },
+      {
+        "label": "Not Set",
+        "value": "None"
+      }
+    ],
+    "selected": []
+  },
+  "DS_Type": {
+    "type": "single",
+    "name": "Type",
+    "labelKey": "label",
+    "options": [
+      {
+        "count": 6105,
+        "value": "pdf",
+        "label": "PDF"
+      },
+      {
+        "count": 3974,
+        "value": "doc",
+        "label": "DOC"
+      },
+      {
+        "count": 2474,
+        "value": "docx",
+        "label": "DOCX"
+      },
+      {
+        "count": 1428,
+        "value": "jpg",
+        "label": "JPG"
+      },
+      {
+        "count": 1348,
+        "value": "xlsx",
+        "label": "XLSX"
+      },
+      {
+        "count": 1135,
+        "value": "xls",
+        "label": "XLS"
+      },
+      {
+        "count": 1048,
+        "value": "pptx",
+        "label": "PPTX"
+      },
+      {
+        "count": 471,
+        "value": "ppt",
+        "label": "PPT"
+      },
+      {
+        "count": 461,
+        "value": "JPG",
+        "label": "JPG"
+      },
+      {
+        "count": 420,
+        "value": "png",
+        "label": "PNG"
+      }
+    ],
+    "selected": []
+  },
+  "DS_DocumentClass": {
+    "type": "single",
+    "name": "Class",
+    "labelKey": "label",
+    "options": [],
+    "selected": []
+  },
+  "DS_Policies": {
+    "type": "single",
+    "name": "Policies",
+    "labelKey": "label",
+    "options": [
+      {
+        "count": 3291,
+        "value": "AWD_Qxb76lO4WWLepPb2",
+        "label": "AWD QXB76LO4WWLEPPB2"
+      },
+      {
+        "count": 74,
+        "value": "AWEKeev46lO4WWLepWFJ",
+        "label": "AWEKEEV46LO4WWLEPWFJ"
+      }
+    ],
+    "selected": []
+  },
+  "DS_EntryType_List": {
+    "type": "group",
+    "name": "Label",
+    "labelKey": "label",
+    "options": [
+      {
+        "groupName": "Contacts",
+        "values": [
+          {
+            "_id": "AV_iVr_TOadifiOjSoKP",
+            "name": "CONTINENT",
+            "label": "CONTINENT",
+            "value": "CONTINENT"
+          },
+          {
+            "_id": "AV_0rKZ7OadifiOjSoVa",
+            "name": "STREET NAMES IN DK",
+            "label": "STREET NAMES IN DK",
+            "value": "STREET NAMES IN DK"
+          },
+          {
+            "_id": "AV_0lzQYOadifiOjSoVD",
+            "name": "LAST NAME",
+            "label": "LAST NAME",
+            "value": "LAST NAME"
+          },
+          {
+            "_id": "AV_0fosjOadifiOjSoU4",
+            "name": "FIRST NAME",
+            "label": "FIRST NAME",
+            "value": "FIRST NAME"
+          },
+          {
+            "_id": "AV_iTAunOadifiOjSoJ6",
+            "name": "CONTRY",
+            "label": "CONTRY",
+            "value": "CONTRY"
+          },
+          {
+            "_id": "AV_iUlq7OadifiOjSoKG",
+            "name": "PERSONAL CODES",
+            "label": "PERSONAL CODES",
+            "value": "PERSONAL CODES"
+          }
+        ]
+      },
+      {
+        "groupName": "Ethnic Relationship",
+        "values": [
+          {
+            "_id": "AV_iR70nOadifiOjSoJ0",
+            "name": "Ethnic Group",
+            "label": "ETHNIC GROUP",
+            "value": "Ethnic Group"
+          }
+        ]
+      },
+      {
+        "groupName": "Social Status",
+        "values": [
+          {
+            "_id": "AV_iSgByOadifiOjSoJ2",
+            "name": "RELATIONSHIP",
+            "label": "RELATIONSHIP",
+            "value": "RELATIONSHIP"
+          }
+        ]
+      },
+      {
+        "groupName": "Religion",
+        "values": [
+          {
+            "_id": "AV_iSzXUOadifiOjSoJ5",
+            "name": "RELIGION",
+            "label": "RELIGION",
+            "value": "RELIGION"
+          }
+        ]
+      },
+      {
+        "groupName": "Health",
+        "values": [
+          {
+            "_id": "AV_0XzT9OadifiOjSoU2",
+            "name": "DISEASES",
+            "label": "DISEASES",
+            "value": "DISEASES"
+          },
+          {
+            "_id": "AV_iUEK6OadifiOjSoKC",
+            "name": "HEALTH CONDITION",
+            "label": "HEALTH CONDITION",
+            "value": "HEALTH CONDITION"
+          }
+        ]
+      },
+      {
+        "groupName": "Orientations",
+        "values": [
+          {
+            "_id": "AV_iTZFXOadifiOjSoJ9",
+            "name": "SEXUAL ORIENTATION",
+            "label": "SEXUAL ORIENTATION",
+            "value": "SEXUAL ORIENTATION"
+          },
+          {
+            "_id": "AV_iTxBTOadifiOjSoKA",
+            "name": "POLITICAL ORIENTATION",
+            "label": "POLITICAL ORIENTATION",
+            "value": "POLITICAL ORIENTATION"
+          }
+        ]
+      },
+      {
+        "groupName": "Finance",
+        "values": [
+          {
+            "_id": "AV_iVFfLOadifiOjSoKL",
+            "name": "Finance Indication",
+            "label": "FINANCE INDICATION",
+            "value": "Finance Indication"
+          },
+          {
+            "_id": "AV_iVPw_OadifiOjSoKO",
+            "name": "Economic Condition",
+            "label": "ECONOMIC CONDITION",
+            "value": "Economic Condition"
+          },
+          {
+            "_id": "AWBz_ZV86lO4WWLecR9L",
+            "name": "Insurence Indications",
+            "label": "INSURENCE INDICATIONS",
+            "value": "Insurence Indications"
+          }
+        ]
+      },
+      {
+        "groupName": "Criminal records",
+        "values": [
+          {
+            "_id": "AV_iUWHDOadifiOjSoKF",
+            "name": "Crime indications",
+            "label": "CRIME INDICATIONS",
+            "value": "Crime indications"
+          }
+        ]
+      },
+      {
+        "groupName": "Algorithms",
+        "values": [
+          {
+            "_id": "AWA16730qxoC1JBC4uTW",
+            "name": "currency",
+            "label": "CURRENCY",
+            "value": "currency"
+          },
+          {
+            "_id": "AWA1674vqxoC1JBC4uTX",
+            "name": "card",
+            "label": "CARD",
+            "value": "card"
+          },
+          {
+            "_id": "AWA1673BqxoC1JBC4uTV",
+            "name": "danish_personal_id_cpr",
+            "label": "DANISH PERSONAL ID CPR",
+            "value": "danish_personal_id_cpr"
+          },
+          {
+            "_id": "AWA167w6qxoC1JBC4uTO",
+            "name": "blood",
+            "label": "BLOOD",
+            "value": "blood"
+          },
+          {
+            "_id": "AWA167xwqxoC1JBC4uTP",
+            "name": "passport",
+            "label": "PASSPORT",
+            "value": "passport"
+          },
+          {
+            "_id": "AWA1670OqxoC1JBC4uTS",
+            "name": "phone",
+            "label": "PHONE",
+            "value": "phone"
+          },
+          {
+            "_id": "AWA167ylqxoC1JBC4uTQ",
+            "name": "social_network_account",
+            "label": "SOCIAL NETWORK ACCOUNT",
+            "value": "social_network_account"
+          },
+          {
+            "_id": "AWA1675kqxoC1JBC4uTY",
+            "name": "email",
+            "label": "EMAIL",
+            "value": "email"
+          },
+          {
+            "_id": "AWA167zaqxoC1JBC4uTR",
+            "name": "danish_phone",
+            "label": "DANISH PHONE",
+            "value": "danish_phone"
+          },
+          {
+            "_id": "AWA1671VqxoC1JBC4uTT",
+            "name": "mac",
+            "label": "MAC",
+            "value": "mac"
+          },
+          {
+            "_id": "AWBh4rWC6lO4WWLecRur",
+            "name": "full_name",
+            "label": "FULL NAME",
+            "value": "full_name"
+          },
+          {
+            "_id": "AWA1672KqxoC1JBC4uTU",
+            "name": "ip",
+            "label": "IP",
+            "value": "ip"
+          }
+        ]
+      },
+      {
+        "groupName": "Know Person",
+        "values": [
+          {
+            "_id": "AWAGOSOuOadifiOjSodY",
+            "name": "Customer",
+            "label": "CUSTOMER",
+            "value": "Customer"
+          },
+          {
+            "_id": "AWAGN3SWOadifiOjSodW",
+            "name": "Employe",
+            "label": "EMPLOYE",
+            "value": "Employe"
+          },
+          {
+            "_id": "AWBzajNf6lO4WWLecR8Z",
+            "name": "Partners",
+            "label": "PARTNERS",
+            "value": "Partners"
+          },
+          {
+            "_id": "AWAGOIw_OadifiOjSodX",
+            "name": "Leads",
+            "label": "LEADS",
+            "value": "Leads"
+          }
+        ]
+      },
+      {
+        "groupName": "Insurance",
+        "values": [
+          {
+            "_id": "AWDewWLp6lO4WWLeoZzm",
+            "name": "IS_PersonID",
+            "label": "IS PERSONID",
+            "value": "IS_PersonID"
+          }
+        ]
+      },
+      {
+        "groupName": "Category test",
+        "values": []
+      },
+      {
+        "groupName": "dfsa",
+        "values": []
+      },
+      {
+        "groupName": "test",
+        "values": []
+      }
+    ],
+    "selected": []
+  }
+}
