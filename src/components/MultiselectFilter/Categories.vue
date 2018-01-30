@@ -4,13 +4,13 @@
                   :category="category"
                   :key="category.name"
                   @categoryWasClicked="categoryWasClicked"></app-category>
-    <!--<div class="multiselect-filter-categories__item"-->
-         <!--v-for="category in categories"-->
-         <!--:category="category"-->
-         <!--:key="category.name"-->
-         <!--@click="selectCategory(category)">-->
-      <!--{{ category.name }}-->
-    <!--</div>-->
+    <!--<div class="multiselect-filter-categories__item"
+         v-for="category in categories"
+         :category="category"
+         :key="category.name"
+         @click="selectCategory(category)">
+      {{ category.name }}
+    </div>-->
   </div>
 </template>
 
@@ -33,8 +33,11 @@
       }
     },
 
+    mounted() {
+      console.log('mounted Category');
+    },
     beforeDestroy() {
-      console.log('destroooy Category', this);
+      console.log('destroooy Category');
 //      axios.put('http://localhost:3000/DS_SourceName', {'test': {}});
     }
   }

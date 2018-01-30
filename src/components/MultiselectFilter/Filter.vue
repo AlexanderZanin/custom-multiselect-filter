@@ -6,7 +6,9 @@
       <li class="multiselect-filter-options__item" v-for="option in selectedCategory.options">
         <label class="multiselect-filter-options__label">
           <input type="checkbox"
-                 :value="option.value" @change="selectOption(option)">
+                 v-model="option.selected"
+                 :value="option.value"
+                 @change="selectOption(option)">
           {{ option.label }}
         </label>
       </li>
@@ -15,23 +17,21 @@
 </template>
 
 <script>
-  import axios from 'axios';
-
   export default {
     props: ['selectedCategory'],
     data () {
       return {
-        selected: this.selectedCategory.selected
+
       }
     },
     methods: {
       selectOption(option) {
-        console.log(option);
+        option.selected = true;
+        this.selectedCategory.selected.push(option.selected);
       }
     },
     beforeDestroy() {
       console.log('destroooy Filter');
-//      axios.put('http://localhost:3000/DS_SourceName', {'test': {}});
     }
   }
 </script>

@@ -1,6 +1,10 @@
 <template>
   <div class="multiselect-filter-category" @click="selectCategory">
     {{ category.name }}
+    <b v-if="category.selected.length"
+          class="multiselect-filter-category__selected-count">
+      ({{ category.selected.length }})
+    </b>
   </div>
 </template>
 

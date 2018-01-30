@@ -17,9 +17,14 @@
 <style lang="scss">
   .prev-step {
     cursor: pointer;
+    padding: 10px;
 
     &:before {
       content: '«';
+    }
+
+    &:hover {
+      background-color: #faffb3;
     }
 
   }
