@@ -1,5 +1,5 @@
 <template>
-  <div class="multiselect-filter-category">
+  <div class="multiselect-filter-category" @click="selectCategory">
     {{ category.name }}
   </div>
 </template>
@@ -12,9 +12,11 @@
 
       }
     },
-    created() {
-
-    }
+    methods: {
+      selectCategory() {
+        this.$emit('categoryWasClicked', this.category);
+      }
+    },
   }
 </script>
 

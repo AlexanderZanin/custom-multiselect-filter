@@ -18,30 +18,45 @@
       </button>
     </form>
     <div class="multiselect-filter__dropdown">
-      <component v-for="category in categories"
-                 :category="category"
-                 :is="currentDropdownView">
+        <!--<app-category v-for="category in categories"-->
+                      <!--:category="category"-->
+                      <!--:key="category.name"-->
+                      <!--@categoryWasClicked="categoryWasClicked"></app-category>-->
+      <app-categories v-if="!currentDropdownStep"
+                      :categories="categories"
+                      @categoryWasClicked="categoryWasClicked"></app-categories>
 
-      </component>
+      <app-filter v-else
+                  :selected-category="selectedCategory">
+        <app-prev-step slot="prev-step"
+                       @backToPrevStep="backToPrevStep">
+          back to filter options
+        </app-prev-step>
+      </app-filter>
     </div>
   </div>
 </template>
 
 <script>
   import axios from 'axios';
-  import CategoriesDropdown from './CategoriesDropdown.vue';
+  import Categories from './Categories.vue';
+  import Filter from './Filter.vue';
+  import PrevStep from './PrevStep.vue';
 
   export default {
     data () {
       return {
         searchMatch: '',
-        categories: {},
-        currentDropdownView: 'CategoriesDropdown',
-        currentDropdownStep: 0
+        categories: [],
+        currentDropdownView: 'Category',
+        currentDropdownStep: 0,
+        selectedCategory: {}
       }
     },
     components: {
-      CategoriesDropdown
+      appFilter: Filter,
+      appPrevStep: PrevStep,
+      appCategories: Categories
     },
     created() {
       axios.get('src/static/filters.json')
@@ -51,19 +66,30 @@
         .catch((error) => {
           console.log(error);
         });
+
     },
     watch: {
       currentDropdownStep() {
         switch (this.currentDropdownStep) {
           case 0:
-            this.currentDropdownView = 'CategoriesDropdown';
+            this.currentDropdownView = 'Category';
             break;
           case 1:
-            this.currentDropdownView = 'CategoriesDropdown';
+            this.currentDropdownView = 'Filter';
             break;
           default:
-            this.currentDropdownView = 'CategoriesDropdown'
+            this.currentDropdownView = 'Category'
         }
+      }
+    },
+    methods: {
+      categoryWasClicked(category) {
+        this.currentDropdownStep += 1;
+        this.selectedCategory = category
+      },
+
+      backToPrevStep() {
+        this.currentDropdownStep -= 1;
       }
     }
   }
@@ -72,10 +98,11 @@
 <style lang="scss">
   .multiselect-filter {
     $borderColor: #e8e8e8;
+    $borderRadius: 5px;
 
     &__wrapper {
       display: flex;
-      border-radius: 5px;
+      border-radius: $borderRadius;
     }
 
     &__label {
@@ -106,6 +133,14 @@
       border: 1px solid $borderColor;
       border-radius: 3px;
       padding: 5px 15px;
+    }
+
+    &__dropdown {
+      border-radius: $borderRadius;
+      border: 1px solid $borderColor;
+      box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.1);
+      max-height: 500px;
+      overflow: auto;
     }
   }
 </style>
