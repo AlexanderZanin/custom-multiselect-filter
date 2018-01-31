@@ -6,9 +6,14 @@
       </label>
       <div class="multiselect-filter__selected-container">
         <div class="multiselect-filter__selected">
-          <app-selected-filters v-if="showSelectedFilters"
-                                :selected-category="selectedCategory"
+          <app-selected-filters v-for="category in categories"
+                                v-if="category.selected.length"
+                                :selected-category="category"
+                                :key="category.name"
                                 @selectionWasCleared="selectionWasCleared"></app-selected-filters>
+          <!--<app-selected-filters v-if="showSelectedFilters"-->
+                                <!--:selected-category="selectedCategory"-->
+                                <!--@selectionWasCleared="selectionWasCleared"></app-selected-filters>-->
         </div>
         <input class="multiselect-filter__input"
                type="text"
@@ -49,17 +54,13 @@
         categories: [],
         currentDropdownView: 'Category',
         currentDropdownStep: 0,
-        selectedCategory: {}
+        selectedCategory: {},
+        selectedFilters: []
       }
     },
     computed: {
       showSelectedFilters() {
         return this.selectedCategory.selected && this.selectedCategory.selected.length;
-      },
-      selectedFilters() {
-        let arr = [];
-        if (!this.selectedCategory.selected) return;
-
       }
     },
     components: {

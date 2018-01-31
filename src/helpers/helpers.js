@@ -25,10 +25,7 @@ export function isEmpty(obj) {
 
 
 
-export function indexOfSelected(selectedCategory, option) {
-
-  return ~selectedCategory.selected.indexOf(option);
-}
+export const indexOfSelected = (selectedCategory, option) => selectedCategory.selected.indexOf(option);
 
 
 

@@ -17,6 +17,7 @@
           :key="index">
         <label class="multiselect-filter-options__label">
           <input type="checkbox"
+                 :checked="isChecked(option)"
                  :value="option.value"
                  @change="selectOption(option)">
           {{ option.label }}
@@ -38,20 +39,23 @@
       }
     },
     methods: {
+      isChecked(option) {
+        return this.findIndex(option) + 1;
+      },
+
       selectOption(option) {
-        if (option.selected) {
-          option.selected = true;
-          this.selectedCategory.selected.push(option);
-          console.log('indexOf', this.selectedCategory.selected.indexOf(option));
-        } else {
-          option.selected = false;
-          console.log('indexOf', this.selectedCategory.selected.indexOf(option));
+        const index = this.findIndex(option);
+
+        if (index + 1) {
+          this.selectedCategory.selected.splice(index, 1);
+          return;
         }
 
-        indexOfSelected(this.selectedCategory);
-//        option.selected = option.selected;
-//        option.selected = true;
-//        this.selectedCategory.selected.push(option.selected);
+        this.selectedCategory.selected.push(option);
+      },
+
+      findIndex(option) {
+        return indexOfSelected(this.selectedCategory, option);
       }
     }
   }
