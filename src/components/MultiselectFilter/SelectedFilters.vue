@@ -34,18 +34,32 @@
     padding-left: 5px;
     overflow: hidden;
 
+    & + & {
+      margin-left: 12px;
+    }
+
     &__count {
       white-space: nowrap;
       margin-left: 3px;
     }
 
     &__remove {
+      font-family: Helvetica, sans-serif;
       border: none;
       margin-left: 5px;
       cursor: pointer;
       padding: 8px;
       background-color: #299d68;
-      color: transparentize(#000, .4);
+      font-weight: 700;
+      color: transparentize(#000, .6);
+
+      &:hover {
+        background-color: darken(#299d68, 5%);
+      }
+
+      &:active {
+        background-color: #299d68;
+      }
     }
   }
 </style>

@@ -11,9 +11,6 @@
                                 :selected-category="category"
                                 :key="category.name"
                                 @selectionWasCleared="selectionWasCleared"></app-selected-filters>
-          <!--<app-selected-filters v-if="showSelectedFilters"-->
-                                <!--:selected-category="selectedCategory"-->
-                                <!--@selectionWasCleared="selectionWasCleared"></app-selected-filters>-->
         </div>
         <input class="multiselect-filter__input"
                type="text"
@@ -102,8 +99,8 @@
         this.currentDropdownStep -= 1;
       },
 
-      selectionWasCleared() {
-        console.log('clear');
+      selectionWasCleared(selection) {
+        selection.selected = [];
       }
     }
   }
@@ -134,6 +131,10 @@
       padding-left: 15px;
       display: flex;
       align-items: center;
+    }
+
+    &__selected {
+      display: flex;
     }
 
     &__input {
