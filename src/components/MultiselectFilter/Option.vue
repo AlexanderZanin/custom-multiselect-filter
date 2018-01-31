@@ -47,6 +47,12 @@
 
 <style lang="scss">
   .multiselect-filter-option {
+    &--with-indent {
+      .multiselect-filter-option__label {
+        padding-left: 40px;
+      }
+    }
+
     &__label {
       display: block;
       padding: 10px;

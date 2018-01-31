@@ -22,10 +22,24 @@
       </div>
     </div>
     <div class="multiselect-filter-options__list">
-      <app-option v-for="(option, index) in selectedCategory.options"
+      <template v-if="selectedCategory.type === 'group'">
+        <div class="multiselect-filter-options__group"
+             v-for="(option, index) in selectedCategory.options"
+             :key="index">
+          <h5 class="multiselect-filter-options__group-name">{{ option.groupName }}</h5>
+          <app-option v-for="(value, index) in option.values"
+                      class="multiselect-filter-option--with-indent"
+                      :key="index"
+                      :option="value"
+                      :selected-category="selectedCategory"></app-option>
+        </div>
+      </template>
+      <template v-else>
+        <app-option v-for="(option, index) in selectedCategory.options"
                   :key="index"
                   :option="option"
                   :selected-category="selectedCategory"></app-option>
+      </template>
     </div>
   </div>
 </template>
@@ -42,7 +56,7 @@
     },
     methods: {
       selectAll() {
-        this.selectedCategory.selected = this.selectedCategory.options.slice();
+        this.selectedCategory.selected = this.selectedCategory.options.slice(); //.slice() returns the reference to the new array.
       },
 
       deselectAll() {
@@ -89,6 +103,14 @@
       &:active {
         background-color: #609ee9;
       }
+    }
+
+    &__group-name {
+      color: #767676;
+      font-weight: 500;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 15px;
     }
   }
 </style>
