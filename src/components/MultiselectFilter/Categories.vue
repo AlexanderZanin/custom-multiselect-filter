@@ -31,14 +31,6 @@
       categoryWasClicked(category) {
         this.$emit('categoryWasClicked', category);
       }
-    },
-
-    mounted() {
-      console.log('mounted Category');
-    },
-    beforeDestroy() {
-      console.log('destroooy Category');
-//      axios.put('http://localhost:3000/DS_SourceName', {'test': {}});
     }
   }
 </script>

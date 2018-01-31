@@ -6,7 +6,9 @@
       </label>
       <div class="multiselect-filter__selected-container">
         <div class="multiselect-filter__selected">
-
+          <app-selected-filters v-if="showSelectedFilters"
+                                :selected-category="selectedCategory"
+                                @selectionWasCleared="selectionWasCleared"></app-selected-filters>
         </div>
         <input class="multiselect-filter__input"
                type="text"
@@ -18,30 +20,27 @@
       </button>
     </form>
     <div class="multiselect-filter__dropdown">
-        <!--<app-category v-for="category in categories"-->
-                      <!--:category="category"-->
-                      <!--:key="category.name"-->
-                      <!--@categoryWasClicked="categoryWasClicked"></app-category>-->
       <app-categories v-if="!currentDropdownStep"
                       :categories="categories"
                       @categoryWasClicked="categoryWasClicked"></app-categories>
 
-      <app-filter v-else
+      <app-options v-else
                   :selected-category="selectedCategory">
         <app-prev-step slot="prev-step"
                        @backToPrevStep="backToPrevStep">
           back to filter options
         </app-prev-step>
-      </app-filter>
+      </app-options>
     </div>
   </div>
 </template>
 
 <script>
   import axios from 'axios';
+  import SelectedFilters from './SelectedFilters.vue';
   import Categories from './Categories.vue';
-  import Filter from './Filter.vue';
   import PrevStep from './PrevStep.vue';
+  import Options from './Options.vue';
 
   export default {
     data () {
@@ -53,10 +52,21 @@
         selectedCategory: {}
       }
     },
+    computed: {
+      showSelectedFilters() {
+        return this.selectedCategory.selected && this.selectedCategory.selected.length;
+      },
+      selectedFilters() {
+        let arr = [];
+        if (!this.selectedCategory.selected) return;
+
+      }
+    },
     components: {
-      appFilter: Filter,
+      appSelectedFilters: SelectedFilters,
+      appCategories: Categories,
       appPrevStep: PrevStep,
-      appCategories: Categories
+      appOptions: Options
     },
     created() {
       axios.get('src/static/filters.json')
@@ -66,7 +76,6 @@
         .catch((error) => {
           console.log(error);
         });
-
     },
     watch: {
       currentDropdownStep() {
@@ -75,7 +84,7 @@
             this.currentDropdownView = 'Category';
             break;
           case 1:
-            this.currentDropdownView = 'Filter';
+            this.currentDropdownView = 'Options';
             break;
           default:
             this.currentDropdownView = 'Category'
@@ -90,6 +99,10 @@
 
       backToPrevStep() {
         this.currentDropdownStep -= 1;
+      },
+
+      selectionWasCleared() {
+        console.log('clear');
       }
     }
   }
@@ -117,10 +130,13 @@
       border: 1px solid $borderColor;
       border-top-right-radius: inherit;
       border-bottom-right-radius: inherit;
+      padding-left: 15px;
+      display: flex;
+      align-items: center;
     }
 
     &__input {
-      display: block;
+      flex-grow: 1;
       height: 100%;
       width: 100%;
       border: none;
