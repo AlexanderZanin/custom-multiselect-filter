@@ -56,6 +56,17 @@
     },
     methods: {
       selectAll() {
+        if (this.selectedCategory.type === 'group') {
+
+          this.selectedCategory.selected = this.selectedCategory.options.reduce((prev, curr) => {
+            return [...prev, ...curr.values];
+          }, {});
+
+          console.log(this.selectedCategory.selected);
+          return
+        }
+
+
         this.selectedCategory.selected = this.selectedCategory.options.slice(); //.slice() returns the reference to the new array.
       },
 

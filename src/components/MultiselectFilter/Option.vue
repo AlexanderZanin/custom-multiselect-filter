@@ -35,6 +35,7 @@
           return;
         }
 
+        console.log('option', option);
         this.selectedCategory.selected.push(option);
       },
 

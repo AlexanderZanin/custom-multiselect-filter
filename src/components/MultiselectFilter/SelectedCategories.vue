@@ -6,7 +6,8 @@
       </label>
       <div class="multiselect-filter__selected-container">
         <div class="multiselect-filter__selected">
-          <app-selected-filters v-for="category in categories"
+          <app-selected-filters class="multiselect-filter__selected-filters"
+                                v-for="category in categories"
                                 v-if="category.selected.length"
                                 :selected-category="category"
                                 :key="category.name"
@@ -135,12 +136,16 @@
 
     &__selected {
       display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__selected-filters {
+      margin: 5px;
     }
 
     &__input {
       flex-grow: 1;
       height: 100%;
-      width: 100%;
       border: none;
       background-color: transparent;
       font-size: 18px;

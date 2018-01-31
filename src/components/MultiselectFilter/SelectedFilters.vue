@@ -34,10 +34,6 @@
     padding-left: 5px;
     overflow: hidden;
 
-    & + & {
-      margin-left: 12px;
-    }
-
     &__count {
       white-space: nowrap;
       margin-left: 3px;
