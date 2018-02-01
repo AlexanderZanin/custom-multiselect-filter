@@ -1,10 +1,11 @@
 <template>
-  <div class="multiselect-filter-categories">
+  <ul class="multiselect-filter-categories">
     <app-category v-for="category in filterBy(categories, 'name', searchMatch)"
+                  tag="li"
                   :category="category"
                   :key="category.name"
                   @categoryWasClicked="categoryWasClicked"></app-category>
-  </div>
+  </ul>
 </template>
 
 <script>
@@ -27,5 +28,7 @@
 </script>
 
 <style lang="scss">
-
+  .multiselect-filter-categories {
+    margin: 0;
+  }
 </style>
