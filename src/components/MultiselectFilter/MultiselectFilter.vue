@@ -1,5 +1,5 @@
 <template>
-  <div class="multiselect-filter">
+  <div class="multiselect-filter" v-click-outside="clickOutside" @click="showDropdown">
     <form class="multiselect-filter__wrapper">
       <label class="multiselect-filter__label" for="search-match">
         filter
@@ -23,7 +23,7 @@
         Reset
       </button>
     </form>
-    <div class="multiselect-filter__dropdown">
+    <div class="multiselect-filter__dropdown" v-if="dropdownIsVisible">
       <app-categories v-if="!currentDropdownStep"
                       :categories="categories"
                       :search-match="searchMatch"
@@ -53,15 +53,10 @@
       return {
         searchMatch: '',
         categories: [],
-        currentDropdownView: 'Category',
         currentDropdownStep: 0,
-        selectedCategory: {}
+        selectedCategory: {},
+        dropdownIsVisible: false
       }
-    },
-    computed: {
-      showSelectedFilters() {
-        return this.selectedCategory.selected && this.selectedCategory.selected.length;
-      },
     },
     components: {
       appSelectedFilters: SelectedFilters,
@@ -98,6 +93,46 @@
         this.categories.forEach((category) => {
           category.selected = [];
         });
+      },
+
+      showDropdown() {
+        this.dropdownIsVisible = true;
+      },
+
+      clickOutside() {
+        this.dropdownIsVisible = false;
+      }
+    },
+    directives: {
+      'click-outside': {
+        bind(el, binding, vNode) {
+          // Provided expression must evaluate to a function.
+          if (typeof binding.value !== 'function') {
+            const compName = vNode.context.name;
+            let warn = `[Vue-click-outside:] provided expression '${binding.expression}' is not a function, but has to be`;
+            if (compName) { warn += `Found in component '${compName}'` }
+
+            console.warn(warn);
+          }
+          // Define Handler and cache it on the element
+          const bubble = binding.modifiers.bubble;
+          const handler = (e) => {
+            if (bubble || (!el.contains(e.target) && el !== e.target)) {
+              binding.value(e)
+            }
+          };
+          el.__vueClickOutside__ = handler;
+
+          // add Event Listeners
+          document.addEventListener('click', handler)
+        },
+
+        unbind(el, binding) {
+          // Remove Event Listeners
+          document.removeEventListener('click', el.__vueClickOutside__);
+          el.__vueClickOutside__ = null
+
+        }
       }
     }
   }

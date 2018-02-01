@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import SelectedCategories from './components/MultiselectFilter/SelectedCategories.vue';
+  import SelectedCategories from './components/MultiselectFilter/MultiselectFilter.vue';
 
   export default {
     data() {
