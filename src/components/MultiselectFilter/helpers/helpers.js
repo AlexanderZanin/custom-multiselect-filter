@@ -1,10 +1,10 @@
 export const indexOfSelected = (selectedCategory, option) => selectedCategory.selected.indexOf(option);
 
 export const filterBy = function(filteringArray, prop, searchMatch) {
-    return filteringArray.filter((obj) => {
-      if (!obj[prop]) return;
-      const itemName = obj[prop].toLowerCase();
+    return filteringArray.filter((item) => {
 
-      return itemName.indexOf(searchMatch) > -1;
+      const itemName = item[prop] ? item[prop] : item;
+
+      return itemName.toLowerCase().indexOf(searchMatch) > -1;
     });
 };
