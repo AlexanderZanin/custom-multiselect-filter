@@ -94,6 +94,7 @@
       },
 
       resetAll() {
+        this.searchMatch = '';
         this.categories.forEach((category) => {
           category.selected = [];
         });
@@ -157,7 +158,7 @@
       border-radius: $borderRadius;
       border: 1px solid $borderColor;
       box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.1);
-      max-height: 500px;
+      max-height: 600px;
       overflow: auto;
     }
   }

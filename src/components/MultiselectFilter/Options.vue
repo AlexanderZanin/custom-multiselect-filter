@@ -27,7 +27,7 @@
              v-for="(option, index) in selectedCategory.options"
              :key="index">
           <h5 class="multiselect-filter-options__group-name">{{ option.groupName }}</h5>
-          <app-option v-for="(value, index) in option.values"
+          <app-option v-for="(value, index) in filterBy(option.values, 'value', searchMatch)"
                       class="multiselect-filter-option--with-indent"
                       :key="index"
                       :option="value"
@@ -115,6 +115,11 @@
       &:active {
         background-color: #609ee9;
       }
+    }
+
+    &__list {
+      max-height: 400px;
+      overflow: auto;
     }
 
     &__group-name {
