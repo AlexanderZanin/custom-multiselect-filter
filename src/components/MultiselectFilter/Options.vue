@@ -64,7 +64,7 @@
             return [...prev, ...curr.values];
           }, {});
 
-          return
+          return;
         }
 
 

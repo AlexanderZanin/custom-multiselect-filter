@@ -23,46 +23,28 @@
         Reset
       </button>
     </form>
-    <div class="multiselect-filter__dropdown" v-if="dropdownIsVisible">
-      <app-categories v-if="!currentDropdownStep"
-                      :categories="categories"
-                      :search-match="searchMatch"
-                      @categoryWasClicked="categoryWasClicked"></app-categories>
-
-      <app-options v-else
-                   :search-match="searchMatch"
-                   :selected-category="selectedCategory">
-        <app-prev-step slot="prev-step"
-                       @backToPrevStep="backToPrevStep">
-          back to filter options
-        </app-prev-step>
-      </app-options>
-    </div>
+    <app-dropdown v-if="dropdownIsVisible"
+                  :categories="categories"
+                  :search-match="searchMatch"></app-dropdown>
   </div>
 </template>
 
 <script>
   import axios from 'axios';
   import SelectedFilters from './SelectedFilters.vue';
-  import Categories from './Categories.vue';
-  import PrevStep from './PrevStep.vue';
-  import Options from './Options.vue';
+  import Dropdown from './Dropdown.vue';
 
   export default {
     data () {
       return {
         searchMatch: '',
         categories: [],
-        currentDropdownStep: 0,
-        selectedCategory: {},
         dropdownIsVisible: false
       }
     },
     components: {
       appSelectedFilters: SelectedFilters,
-      appCategories: Categories,
-      appPrevStep: PrevStep,
-      appOptions: Options
+      appDropdown: Dropdown
     },
     created() {
       axios.get('src/static/filters.json')
@@ -74,16 +56,6 @@
         });
     },
     methods: {
-      categoryWasClicked(category) {
-        this.currentDropdownStep += 1;
-        this.selectedCategory = category
-      },
-
-      backToPrevStep() {
-        this.searchMatch = '';
-        this.currentDropdownStep -= 1;
-      },
-
       selectionWasCleared(selection) {
         selection.selected = [];
       },
@@ -124,12 +96,12 @@
           el.__vueClickOutside__ = handler;
 
           // add Event Listeners
-          document.addEventListener('click', handler)
+          document.addEventListener('click', handler, true)
         },
 
         unbind(el, binding) {
           // Remove Event Listeners
-          document.removeEventListener('click', el.__vueClickOutside__);
+          document.removeEventListener('click', el.__vueClickOutside__, true);
           el.__vueClickOutside__ = null
 
         }
@@ -187,14 +159,6 @@
       border: 1px solid $borderColor;
       border-radius: 3px;
       padding: 5px 15px;
-    }
-
-    &__dropdown {
-      border-radius: $borderRadius;
-      border: 1px solid $borderColor;
-      box-shadow: 2px 2px 5px 0 rgba(0, 0, 0, 0.1);
-      max-height: 600px;
-      overflow: auto;
     }
   }
 </style>
