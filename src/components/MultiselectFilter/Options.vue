@@ -35,7 +35,7 @@
         </div>
       </template>
       <template v-else>
-        <app-option v-for="(option, index) in selectedCategory.options"
+        <app-option v-for="(option, index) in filterBy(selectedCategory.options, 'value', searchMatch)"
                   :key="index"
                   :option="option"
                   :selected-category="selectedCategory"></app-option>
@@ -45,16 +45,18 @@
 </template>
 
 <script>
-  import { indexOfSelected } from '../../helpers/helpers';
+  import { indexOfSelected, filterBy } from './helpers/helpers';
   import Option from './Option.vue';
 
 
   export default {
-    props: ['selectedCategory'],
+    props: ['selectedCategory', 'searchMatch'],
     components: {
       appOption: Option
     },
     methods: {
+      filterBy,
+
       selectAll() {
         if (this.selectedCategory.type === 'group') {
 
@@ -62,7 +64,6 @@
             return [...prev, ...curr.values];
           }, {});
 
-          console.log(this.selectedCategory.selected);
           return
         }
 

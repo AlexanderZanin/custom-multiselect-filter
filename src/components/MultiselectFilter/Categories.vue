@@ -1,33 +1,24 @@
 <template>
   <div class="multiselect-filter-categories">
-    <app-category v-for="category in categories"
+    <app-category v-for="category in filterBy(categories, 'name', searchMatch)"
                   :category="category"
                   :key="category.name"
                   @categoryWasClicked="categoryWasClicked"></app-category>
-    <!--<div class="multiselect-filter-categories__item"
-         v-for="category in categories"
-         :category="category"
-         :key="category.name"
-         @click="selectCategory(category)">
-      {{ category.name }}
-    </div>-->
   </div>
 </template>
 
 <script>
   import Category from './Category.vue';
+  import { filterBy } from './helpers/helpers';
 
   export default {
-    props: ['categories'],
-    data () {
-      return {
-
-      }
-    },
+    props: ['categories', 'searchMatch'],
     components: {
       appCategory: Category
     },
     methods: {
+      filterBy,
+
       categoryWasClicked(category) {
         this.$emit('categoryWasClicked', category);
       }

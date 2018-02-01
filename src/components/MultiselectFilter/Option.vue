@@ -18,7 +18,7 @@
 </template>
 
 <script>
-  import { indexOfSelected } from '../../helpers/helpers';
+  import { indexOfSelected } from './helpers/helpers';
 
   export default {
     props: ['option', 'selectedCategory'],
@@ -35,7 +35,6 @@
           return;
         }
 
-        console.log('option', option);
         this.selectedCategory.selected.push(option);
       },
 

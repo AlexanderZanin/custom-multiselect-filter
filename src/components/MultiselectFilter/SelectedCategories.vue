@@ -18,17 +18,20 @@
                id="search-match"
                v-model="searchMatch" />
       </div>
-      <button class="multiselect-filter__button" type="reset">
+      <button class="multiselect-filter__button"
+              type="reset" @click="resetAll">
         Reset
       </button>
     </form>
     <div class="multiselect-filter__dropdown">
       <app-categories v-if="!currentDropdownStep"
                       :categories="categories"
+                      :search-match="searchMatch"
                       @categoryWasClicked="categoryWasClicked"></app-categories>
 
       <app-options v-else
-                  :selected-category="selectedCategory">
+                   :search-match="searchMatch"
+                   :selected-category="selectedCategory">
         <app-prev-step slot="prev-step"
                        @backToPrevStep="backToPrevStep">
           back to filter options
@@ -52,14 +55,13 @@
         categories: [],
         currentDropdownView: 'Category',
         currentDropdownStep: 0,
-        selectedCategory: {},
-        selectedFilters: []
+        selectedCategory: {}
       }
     },
     computed: {
       showSelectedFilters() {
         return this.selectedCategory.selected && this.selectedCategory.selected.length;
-      }
+      },
     },
     components: {
       appSelectedFilters: SelectedFilters,
@@ -76,20 +78,6 @@
           console.log(error);
         });
     },
-    watch: {
-      currentDropdownStep() {
-        switch (this.currentDropdownStep) {
-          case 0:
-            this.currentDropdownView = 'Category';
-            break;
-          case 1:
-            this.currentDropdownView = 'Options';
-            break;
-          default:
-            this.currentDropdownView = 'Category'
-        }
-      }
-    },
     methods: {
       categoryWasClicked(category) {
         this.currentDropdownStep += 1;
@@ -97,11 +85,18 @@
       },
 
       backToPrevStep() {
+        this.searchMatch = '';
         this.currentDropdownStep -= 1;
       },
 
       selectionWasCleared(selection) {
         selection.selected = [];
+      },
+
+      resetAll() {
+        this.categories.forEach((category) => {
+          category.selected = [];
+        });
       }
     }
   }
