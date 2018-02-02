@@ -8,11 +8,6 @@
   import SelectedCategories from './components/MultiselectFilter/MultiselectFilter.vue';
 
   export default {
-    data() {
-      return {
-
-      }
-    },
     components: {
       SelectedCategories
     },
