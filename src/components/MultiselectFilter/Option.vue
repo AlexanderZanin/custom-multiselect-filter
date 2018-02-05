@@ -6,13 +6,7 @@
              :checked="isChecked(option)"
              :value="option.value"
              @change="toggleOption(option)">
-      <template  v-if="option.label">
-        {{ option.label }}
-      </template>
-      <template v-else>
-        {{ option }}
-      </template>
-
+        {{ option.label ? option.label : option }}
     </label>
   </div>
 </template>
